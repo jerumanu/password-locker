@@ -20,7 +20,7 @@ class  User:
 
 
 
-class Credetial:
+class Credential:
 
     credential_list = []
 
@@ -33,10 +33,21 @@ class Credetial:
         self.password1 = password1
 
      
-    def save_credetial(self):
+    def save_credential(self):
 
             '''
         user method saves contact objects into contact_list
             '''
 
-            Credetial.credential_list.append(self)
+            Credential.credential_list.append(self)
+
+
+
+
+    def delete_credential(self):
+
+        '''
+        delete_contact method deletes a saved contact from the contact_list
+        '''
+
+        Credential.credential_list.remove(self)         
