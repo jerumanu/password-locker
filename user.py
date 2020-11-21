@@ -35,11 +35,11 @@ class Credential:
      
     def save_credential(self):
 
-            '''
+        '''
         user method saves contact objects into contact_list
-            '''
+        '''
 
-            Credential.credential_list.append(self)
+        Credential.credential_list.append(self)
 
 
 
@@ -51,3 +51,22 @@ class Credential:
         '''
 
         Credential.credential_list.remove(self)         
+
+
+
+
+    @classmethod
+    def find_by_account(cls,account):
+        '''
+        Method that takes in a number and returns a contact that matches that number.
+
+        Args:
+        number: Phone number to search for
+        Returns :
+        Contact of person that matches the number.
+        '''
+
+        for credential in cls.credential_list:
+            if credential.account == account:
+                 print(credential)
+                 return credential
