@@ -32,4 +32,11 @@ class Credetial:
         self.username1 = username1
         self.password1 = password1
 
+     
+    def save_credetial(self):
 
+            '''
+        user method saves contact objects into contact_list
+            '''
+
+            Credetial.credential_list.append(self)

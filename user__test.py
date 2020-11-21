@@ -24,7 +24,19 @@ class CredetialTest(unittest.TestCase):
     def setUp(self):
 
         self.new_credetial = Credetial("twiter","manjeru",1234567)
-    def    
 
+
+
+    def test__init(self):
+
+
+        self.assertEqual(self.new_credetial.account,"twiter")
+        self.assertEqual(self.new_credetial.username1,"manjeru")
+        self.assertEqual(self.new_credetial.password1,1234567)
+
+    def  test_save_credetial(self):
+        
+        self.new_credetial.save_credetial()
+        self.assertEqual(len(Credetial.credential_list),1)
 if __name__ == '__main__':
     unittest.main()           
