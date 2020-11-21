@@ -1,5 +1,5 @@
 import unittest
-from user import User , Credential
+from user import User, Credential
 
 
 class UserTest(unittest.TestCase):
@@ -67,6 +67,18 @@ class CredetialTest(unittest.TestCase):
 
                 self.new_credential.delete_credential()# Deleting a contact object
                 self.assertEqual(len(Credential.credential_list),1)
+
+    def test_find_credentials(self):
+        self.new_credential.save_credential()
+        test_credential = Credential("whatsapp", "manjeru", 12345)
+        test_credential.save_credential()
+
+        found_credential = Credential.find_by_account('whatsapp')
+        found_credential = found_credential
+        self.assertEqual(found_credential, test_credential)
+        
+
+   
          
 if __name__ == '__main__':
     unittest.main()           
