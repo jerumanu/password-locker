@@ -1,5 +1,5 @@
 import unittest
-from user import User , Credetial
+from user import User , Credential
 
 
 class UserTest(unittest.TestCase):
@@ -23,20 +23,50 @@ class UserTest(unittest.TestCase):
 class CredetialTest(unittest.TestCase):
     def setUp(self):
 
-        self.new_credetial = Credetial("twiter","manjeru",1234567)
+        self.new_credential = Credential("twiter","manjeru",1234567)
 
 
 
     def test__init(self):
 
 
-        self.assertEqual(self.new_credetial.account,"twiter")
-        self.assertEqual(self.new_credetial.username1,"manjeru")
-        self.assertEqual(self.new_credetial.password1,1234567)
+        self.assertEqual(self.new_credential.account,"twiter")
+        self.assertEqual(self.new_credential.username1,"manjeru")
+        self.assertEqual(self.new_credential.password1,1234567)
 
     def  test_save_credetial(self):
         
-        self.new_credetial.save_credetial()
-        self.assertEqual(len(Credetial.credential_list),1)
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credential.credential_list),1)
+    def tearDown(self):
+                '''
+                tearDown method that does clean up after each test case has run.
+                '''
+                Credential.credential_list = []
+        
+    def test_save_multiple_credential(self):
+                '''
+                test_save_multiple_contact to check if we can save multiple contact
+                objects to our contact_list
+                '''
+                self.new_credential.save_credential()
+                test_credential = Credential("Test""whatsapp","manjeru",1234567) # new credetial
+                test_credential.save_credential()
+                self.assertEqual(len( Credential.credential_list),2)
+
+
+
+
+    def test_delete_credential(self):
+                '''
+                test_delete_contact to test if we can remove a contact from our contact list
+                '''
+                self.new_credential.save_credential()
+                test_credential = Credential("Test""whatsapp","manjeru",1234567) # new credetial
+                test_credential.save_credential()
+
+                self.new_credential.delete_credential()# Deleting a contact object
+                self.assertEqual(len(Credential.credential_list),1)
+         
 if __name__ == '__main__':
     unittest.main()           
