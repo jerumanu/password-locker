@@ -21,7 +21,7 @@ class UserTest(unittest.TestCase):
     def user_exist(cls, username,password):
         current_user = ''
         for user in User.user__list:
-            if(user.username == username and user.password == password):
+           if(user.username == username and user.password == password):
                 current_user = user.username
         return current_user
 

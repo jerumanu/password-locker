@@ -1,19 +1,19 @@
-##PASSWORD LOCKER
+PASSWORD LOCKER
 Description of Password locker
 Passsword locker is a aplication that users can use to store their credentials.It was created on 23/11/2020.
 
-#Author
+Author
 By Emmanuel cheriyot.
 
-#project Set up Instructions
+project Set up Instructions
 Ctrl + alt + t to open the terminal
 now git clone
 cd password
 you can use code . to open it.
 
-#Technologies Used
+Technologies Used
 python 
-#Support and contact details
+Support and contact details
 I would like to give credit to my Technical mentor for the guidance she gave me towards the development of this web
 
 License
