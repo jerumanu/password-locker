@@ -87,7 +87,7 @@ def main():
     
          
     while True:
-        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = display credentials,  \n Dc = delete credential, \n  EX = exit application')
+        print('Use these short codes to manage credentials: \n NC = new credential, \n VC = display credentials,\n SC =     find credential  \n Dc = delete credential, \n  EX = exit application')
         short_code = input().lower()
         if short_code == 'nc':
             print('Enter New Credential Details')
@@ -104,17 +104,18 @@ def main():
                 else:
                     print('Invalid short code. Please try again')
                 print('*' * 100)
-            save_credential(create_credential(account, username1,password))
+            save_credential(create_credential(account, username1, password))
             print('*' * 100)
             print(f'Your {account} account has been saved')
             print('*' * 100)
         elif short_code == 'vc':
+            
             if display_credential():
                 print('Your saved credentials are:')
                 for account in display_credential():
-                    print('*' * 100)
-                    print(f' Name: {account} \n Username: {username1} \n Password: {password}')
-                    print('*' * 100)
+                    print('-' * 100)
+                    print(f'   Username: {username1} \n Password: {password}')
+                    print('-' * 100)
             else:
                 print('*' * 100)
                 print('You have No Credentials. Please Create One')
@@ -138,9 +139,9 @@ def main():
             print('Enter Account Name To Search...')
             search = input('Account Name : ')
             print('*' * 100)
-            if find_credential(account):
+            if find_credential(search):
                 search = find_credential(search)
-                print(f'Account Name: {account} ')
+                print(f'Account Name: {search} ')
                 print('*' * 100)
             else:
                 print('Credential does not exist')
