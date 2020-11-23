@@ -10,9 +10,6 @@ def create_user(username,password):
     return new_user
 
 
-# def sign_in(username, password):
-#     user_exists = User.user_exist(username,password)
-#     return user_exists
 
 
 def  save_user(user):
@@ -20,9 +17,7 @@ def  save_user(user):
     user.save_user()
 
 
-# def delete user(user):
 
-#     user.delete _user()
 
 
 
