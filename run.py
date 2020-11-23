@@ -104,7 +104,7 @@ def main():
                 else:
                     print('Invalid short code. Please try again')
                 print('*' * 100)
-            save_credential(create_credential(account, username1,password1))
+            save_credential(create_credential(account, username1,password))
             print('*' * 100)
             print(f'Your {account} account has been saved')
             print('*' * 100)
@@ -113,7 +113,7 @@ def main():
                 print('Your saved credentials are:')
                 for account in display_credential():
                     print('*' * 100)
-                    print(f' Name: {account} \n Username: {username1} \n Password: {password1}')
+                    print(f' Name: {account} \n Username: {username1} \n Password: {password}')
                     print('*' * 100)
             else:
                 print('*' * 100)
@@ -126,7 +126,7 @@ def main():
             print('*' * 100)
             if find_credential(name):
                 name_result = find_credential(name)
-                name_result.delete_credentials()
+                name_result.delete_credential()
                 print(f'Account {name} has been successfully deleted ')
                 print('*' * 100)
                 
@@ -138,9 +138,9 @@ def main():
             print('Enter Account Name To Search...')
             search = input('Account Name : ')
             print('*' * 100)
-            if find_credential(search):
+            if find_credential(account):
                 search = find_credential(search)
-                print(f'Account Name: {search.account} \n Username: {search.username} \n Password: {search.password}')
+                print(f'Account Name: {account} ')
                 print('*' * 100)
             else:
                 print('Credential does not exist')
