@@ -16,11 +16,18 @@ class UserTest(unittest.TestCase):
         self.new__user.save_user()
         self.assertEqual(len(User.user__list),1)
 
+        
+    @classmethod
+    def user_exist(cls, username,password):
+        current_user = ''
+        for user in User.user__list:
+            if(user.username == username and user.password == password):
+                current_user = user.username
+        return current_user
 
+ 
 
-
-
-class CredetialTest(unittest.TestCase):
+class CredentialTest(unittest.TestCase):
     def setUp(self):
 
         self.new_credential = Credential("twiter","manjeru",1234567)
@@ -75,10 +82,44 @@ class CredetialTest(unittest.TestCase):
 
         found_credential = Credential.find_by_account('whatsapp')
         found_credential = found_credential
-        self.assertEqual(found_credential, test_credential)
+        self.assertEqual(found_credential,test_credential)
         
 
-   
+
+    def test_credential_exists(self):
+        '''
+        test to check if we can return a Boolean  if we cannot find the contact.
+        '''
+
+        self.new_credential.save_credential()
+        test_credential = Credential("whatsapp", "manjeru", 12345) # new contact
+        test_credential.save_credential()
+
+        credential_exists = Credential.credential_exist("whatsapp")
+
+        self.assertTrue(credential_exists)
+
+
+
+    def test_display_all_credential(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+
+        self.assertEqual(Credential.display_credential(),Credential.credential_list)
+    # def test_find_credential_by_account(self):
+    #            '''
+    #            test to check if we can find a contact by phone number and display information
+    #            '''
+
+    #            self.new_credential.save_credential()
+    #            test_credential = Credential("Test""whatsapp","manjeru",1234567) # new credetial
+    #            test_credential.save_credential()
+
+    #            found_credential = Credential.find_by_account('whatsapp')
+    #            self.assertEqual(found_credential.account,test_credential.account)
+
+
          
 if __name__ == '__main__':
     unittest.main()           
