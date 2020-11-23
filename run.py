@@ -114,7 +114,7 @@ def main():
                 print('Your saved credentials are:')
                 for account in display_credential():
                     print('-' * 100)
-                    print(f'   Username: {username1} \n Password: {password}')
+                    print(f'Username: {username1} \n Password: {password}')
                     print('-' * 100)
             else:
                 print('*' * 100)
