@@ -17,6 +17,14 @@ class  User:
         '''
 
         User.user__list.append(self)
+@classmethod
+def user_exist(cls,username,password):
+        current_user = ''
+        for user in User.user__list:
+            if(user.username == username and user.password == password):
+                current_user = user.username
+        return current_user
+
 
 
 
@@ -68,5 +76,21 @@ class Credential:
 
         for credential in cls.credential_list:
             if credential.account == account:
-                 print(credential)
+                
                  return credential
+
+    @classmethod
+    def credential_exist(cls,account):     
+        '''
+        checks if a given credentials exists
+        '''
+        for credential in cls.credential_list:
+            if credential.account == account:
+                return False
+            return True
+    @classmethod
+    def display_credential(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.credential_list
